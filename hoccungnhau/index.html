@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Cùng Nhau (hoccungnhau) - Nền Tảng Học Tập Cấp 3 & Đại Học</title>
+    <link rel="icon" type="image/png" href="a.png">
+    <!-- MASTER CSS SYSTEM (VietJack & HocMai Inspired) -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/features-showcase.css">
+    <!-- FIREBASE COMPAT SDKs (Project: hoccungnhau-cd2c6) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <!-- KATEX MATH RENDERING ENGINE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+
+    <!-- SITE HEADER & NAVIGATION BAR -->
+    <header class="site-header">
+        <div class="site-header-container">
+            <div class="logo-container" id="logo-home">
+                <div class="logo-badge">H</div>
+                <span class="logo-text">hoccungnhau</span>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu di động">
+                <span class="hamburger-icon">☰</span>
+                <span class="menu-label">Menu</span>
+            </button>
+
+            <nav class="nav-bar" id="site-nav-bar">
+                <ul class="nav-menu" id="site-nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-route="home">🏠 Trang Chủ</a>
+                    </li>
+
+                    <!-- NHÓM 1: HỌC TẬP -->
+                    <li class="nav-item has-dropdown" id="nav-class-item">
+                        <a href="#" class="nav-link" id="class-dropdown-toggle" data-route="classes">📚 Học Tập <span class="arrow-down">▾</span></a>
+                        <div class="dropdown-menu" id="class-dropdown-menu">
+                            <a href="#" class="dropdown-item" data-route="highschool" data-param="10">🏫 Lớp 10 (Sách Mới)</a>
+                            <a href="#" class="dropdown-item" data-route="highschool" data-param="11">🏫 Lớp 11 (Sách Mới)</a>
+                            <a href="#" class="dropdown-item" data-route="highschool" data-param="12">🏫 Lớp 12 (Sách Mới)</a>
+                            <div class="dropdown-sep"></div>
+                            <a href="#" class="dropdown-item is-hot" data-route="thptqg">🔥 Ôn Thi THPTQG 2027</a>
+                            <a href="#" class="dropdown-item is-uni" data-route="university">🏛️ Đại Học</a>
+                        </div>
+                    </li>
+
+                    <!-- NHÓM 2: ÔN LUYỆN & ĐẤU TRƯỜNG -->
+                    <li class="nav-item has-dropdown">
+                        <button type="button" class="nav-link">🎯 Ôn Luyện <span class="arrow-down">▾</span></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item is-hot" data-route="pk-arena">⚔️ Đấu Trường PK 1v1 & Team</a>
+                            <a href="#" class="dropdown-item is-hot" data-route="ai-viva">🎓 Phòng Vấn Đáp Cùng AI</a>
+                            <a href="#" class="dropdown-item is-uni" data-route="mistake-book">📕 Sổ Tay Phục Thù Câu Sai</a>
+                            <div class="dropdown-sep"></div>
+                            <button type="button" class="dropdown-item" id="question-bank-btn">❓ Đề Thi</button>
+                            <button type="button" class="dropdown-item" id="flashcards-btn">🎴 Flashcards</button>
+                            <button type="button" class="dropdown-item" id="quiz-history-btn">📊 Bảng Điểm</button>
+                            <button type="button" class="dropdown-item" id="notes-btn">📝 Ghi Chú</button>
+                        </div>
+                    </li>
+
+                    <!-- NHÓM 3: CỘNG ĐỒNG & HỌC NHÓM -->
+                    <li class="nav-item has-dropdown">
+                        <button type="button" class="nav-link">👥 Cộng Đồng <span class="arrow-down">▾</span></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item is-hot" data-route="study-rooms">🏠 Tổ Hợp Phòng Học Chung</a>
+                            <a href="#" class="dropdown-item is-uni" data-route="study-buddy">🤝 Bạn Cùng Tiến (Chuỗi Lửa 🔥)</a>
+                            <div class="dropdown-sep"></div>
+                            <button type="button" class="dropdown-item" id="qa-btn">💬 Hỏi Đáp</button>
+                            <a href="#" class="dropdown-item" data-route="news">📰 Tin Tức</a>
+                            <button type="button" class="dropdown-item" id="feedback-btn">💡 Góp Ý</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" class="header-search" id="global-search-btn" title="Tìm kiếm (Ctrl + K)">
+                    <span>🔍</span><span class="hs-text">Tìm bài giảng, đề thi, môn học...</span><kbd>Ctrl K</kbd>
+                </button>
+                <button type="button" class="nav-icon-btn" id="theme-toggle-btn" aria-label="Đổi giao diện sáng/tối" title="Đổi giao diện">☀️</button>
+                <!-- Chỉ hiện khi đăng nhập bằng tài khoản có role Admin (auth.js bật/tắt) -->
+                <a class="btn-icon" id="admin-link" href="admin.html" hidden>⚙️ Quản Trị</a>
+                <button class="btn-gradient" id="login-btn">🔑 Đăng Nhập</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN APP CONTENT VIEWPORT -->
+    <main class="page-main" id="main-app-content">
+        <!-- Content dynamically injected via app.js -->
+    </main>
+
+    <!-- FOOTER -->
+        <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-top-gradient"></div>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span class="logo-badge">H</span>
+                    <span class="logo-text">hoccungnhau</span>
+                </div>
+                <p class="footer-desc">Nền tảng học tập trực tuyến thông minh dành cho học sinh Phổ thông và sinh viên Đại học . Tích hợp AI Tutor 24/7, ngân hàng 20 câu Quiz KaTeX & Thẻ ghi nhớ 3D.</p>
+                <div class="footer-contact-info">
+                    <div>📞 Hotline: <strong>1900 6868</strong> (08:00 - 22:00)</div>
+                    <div>📧 Email: <strong>hotro@hoccungnhau.edu.vn</strong></div>
+                    <div>📍  TP. Hồ Chí Minh</div>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>🏫 Cấp Học Phổ Thông</h4>
+                <ul>
+                    <li><a href="#" data-route="highschool" data-param="10">🏫 Chương Trình Lớp 10 (Sách Mới)</a></li>
+                    <li><a href="#" data-route="highschool" data-param="11">🏫 Chương Trình Lớp 11 (Sách Mới)</a></li>
+                    <li><a href="#" data-route="highschool" data-param="12">🏫 Chương Trình Lớp 12 (Sách Mới)</a></li>
+                    <li><a href="#" data-route="thptqg" style="color:var(--accent-pink); font-weight:700;">🔥 Cẩm Nang Ôn Thi THPTQG 2027</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>🏛️ Khối Ngành Đại Học</h4>
+                <ul>
+                    <li><a href="#" data-route="university">📐 Đại Số Tuyến Tính</a></li>
+                    <li><a href="#" data-route="university">🧮 Toán Rời Rạc & Đồ Thị</a></li>
+                    <li><a href="#" data-route="university">💻 Lập Trình C++ Chuyên Sâu</a></li>
+                    <li><a href="#" data-route="university">🌐 Kỹ Thuật Web Fullstack</a></li>
+                    <li><a href="#" data-route="university">⚖️ Pháp Luật Đại Cương</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>📩 Nhận Tài Liệu Ôn Thi Miễn Phí</h4>
+                <p>Đăng ký email để nhận bộ đề thi thử THPTQG và tài liệu Lập trình hàng tuần.</p>
+                <form class="newsletter-form newsletter-stack" id="newsletter-form" novalidate>
+                    <input type="text" id="nl-name" class="form-input" placeholder="Họ và tên" autocomplete="name" maxlength="100">
+                    <input type="tel" id="nl-phone" class="form-input" placeholder="Số điện thoại (VD: 0901234567)" autocomplete="tel" maxlength="15">
+                    <input type="email" id="nl-email" class="form-input" placeholder="Email của bạn" autocomplete="email" maxlength="100">
+                    <div id="nl-error" style="display:none; color:#ef4444; font-size:0.8rem;"></div>
+                    <button type="submit" class="btn-gradient" id="nl-submit" style="padding:0.7rem;">📩 Đăng Ký Nhận Tài Liệu</button>
+                </form>
+                <div class="trust-badges">
+                    <span class="trust-badge">🛡️ Đã Đăng Ký Bộ Công Thương</span>
+                    <span class="trust-badge">🔒 SSL Secure 256-bit</span>
+                    <span class="trust-badge">⚡ Powered by Firebase</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div>&copy; 2026 <strong>hoccungnhau.edu.vn</strong>. All rights reserved. Nền Tảng Giáo Dục Thông Minh.</div>
+                <div class="footer-status">🟢 Hệ Thống Máy Chủ Hoạt Động Bình Thường</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================================================== -->
+    <!-- SYSTEM MODALS SECTION -->
+    <!-- ========================================================================== -->
+
+    <!-- MODAL 1: STRICT EMAIL/PASS AUTHENTICATION (FIRESTORE CONNECTED) -->
+    <div class="modal-overlay" id="auth-modal">
+        <div class="modal-content" style="max-width:450px;">
+            <button class="modal-close" id="auth-modal-close">&times;</button>
+            <h2 id="auth-modal-title" style="margin-bottom:1.5rem; text-align:center;">Đăng Nhập Tài Khoản</h2>
+            
+            <div style="display:flex; border-bottom:1px solid var(--border-color); margin-bottom:1.5rem;">
+                <button class="auth-tab-btn active" data-mode="login" style="flex:1; padding:0.75rem; background:none; border:none; color:var(--text-primary); font-weight:700; border-bottom:2px solid var(--primary-purple); cursor:pointer;">Đăng Nhập</button>
+                <button class="auth-tab-btn" data-mode="register" style="flex:1; padding:0.75rem; background:none; border:none; color:var(--text-muted); font-weight:700; cursor:pointer;">Đăng Ký</button>
+            </div>
+
+            <form id="auth-form" data-mode="login">
+                <div class="form-group" id="auth-name-group" style="display:none;">
+                    <label>Họ và Tên</label>
+                    <input type="text" class="form-input" id="auth-name" placeholder="Nhập họ và tên đầy đủ">
+                </div>
+                <div class="form-group">
+                    <label>Địa Chỉ Email</label>
+                    <input type="email" class="form-input" id="auth-email" required placeholder="example@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Mật Khẩu</label>
+                    <input type="password" class="form-input" id="auth-pass" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn-gradient" id="auth-submit-btn" style="width:100%; padding:0.8rem; margin-top:1rem;">🔑 Đăng Nhập Hệ Thống</button>
+            </form>
+            <div style="margin-top:1rem; text-align:center; font-size:0.8rem; color:var(--text-muted);">
+                🔒 Hệ thống học tập trực tuyến an toàn và bảo mật cho học viên.
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: USER NOTES -->
+    <div class="modal-overlay" id="notes-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="notes-modal-close">&times;</button>
+            <h2 style="margin-bottom:1rem;">📝 Sổ Ghi Chú Cá Nhân</h2>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">Mọi nội dung ghi chú sẽ được tự động lưu lại vào trình duyệt của bạn cho các lần truy cập sau.</p>
+            <textarea id="notes-textarea" class="form-input" style="height:220px; resize:vertical;" placeholder="Gõ ghi chú bài học, công thức cần nhớ hoặc lịch học tại đây..."></textarea>
+            <div id="notes-save-status" style="font-size:0.8rem; color:var(--accent-cyan); margin-top:0.5rem; text-align:right;"></div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: FEEDBACK -->
+    <div class="modal-overlay" id="feedback-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="feedback-modal-close">&times;</button>
+            <h2 style="margin-bottom:1rem;">💡 Đóng Góp Ý Kiến Cải Tiến</h2>
+            <form id="feedback-form">
+                <div class="form-group">
+                    <label>Ý kiến hoặc tính năng bạn muốn cải thiện:</label>
+                    <textarea id="feedback-content" class="form-input" style="height:150px; resize:vertical;" required placeholder="Nhập ý kiến đóng góp của bạn tại đây..."></textarea>
+                </div>
+                <button type="submit" class="btn-gradient" style="width:100%; padding:0.8rem;">Submit Gửi Góp Ý</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 4: QUIZ ENGINE MODAL -->
+    <div class="modal-overlay" id="quiz-modal">
+        <div class="modal-content" style="max-width:850px; max-height:92vh; overflow-y:auto;">
+            <button class="modal-close" id="quiz-modal-close">&times;</button>
+            
+            <div class="quiz-header-bar">
+                <div>
+                    <h2 id="quiz-title" style="margin-bottom:0.3rem;">🎯 Bài Tập Củng Cố Trắc Nghiệm 20 Câu</h2>
+                    <span id="quiz-subtitle" style="font-size:0.85rem; color:var(--text-muted);">Mỗi câu có 4 đáp án (1 đúng, 3 sai) và phần giải thích chi tiết.</span>
+                </div>
+                <div class="quiz-badge-timer" id="quiz-timer-badge">
+                    ⏱️ Thời Gian: <span id="quiz-timer-text">30:00</span>
+                </div>
+            </div>
+
+            <div class="progress-bar-container" style="margin:1rem 0; background:var(--bg-input); height:10px; border-radius:5px; overflow:hidden;">
+                <div class="progress-bar-fill" id="quiz-progress-bar" style="width:0%; height:100%; background:linear-gradient(90deg, var(--primary-purple), var(--accent-pink)); transition:width 0.3s;"></div>
+            </div>
+
+            <div id="quiz-questions-container">
+                <!-- 20 Questions rendered dynamically -->
+            </div>
+
+            <div style="display:flex; gap:1rem; margin-top:1.5rem;">
+                <button class="btn-gradient" id="quiz-submit-btn" style="flex:2; padding:1rem; font-size:1.1rem;">
+                    🚀 Nộp Bài & Xem Kết Quả Chi Tiết
+                </button>
+                <button class="btn-icon" id="quiz-print-btn" style="flex:1; padding:1rem; font-size:0.95rem; justify-content:center;">
+                    🖨️ In Đề / Export PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 5: QUESTION BANK -->
+    <div class="modal-overlay" id="question-bank-modal">
+        <div class="modal-content" style="max-width:900px; max-height:90vh; overflow-y:auto;">
+            <button class="modal-close" id="question-bank-modal-close">&times;</button>
+            <h2 style="margin-bottom:0.5rem;">❓ Ngân Hàng Đề Thi & Bài Tập Trắc Nghiệm</h2>
+            <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem;">Kho hơn 200+ câu hỏi trắc nghiệm được tổng hợp chuẩn cấu trúc Bộ GD&ĐT và khung chương trình Kỹ thuật Đại học.</p>
+            
+            <div class="tab-filters" style="display:flex; gap:0.5rem; margin-bottom:1.5rem; flex-wrap:wrap;">
+                <button class="btn-filter active" data-bank="all">Tất Cả Môn</button>
+                <button class="btn-filter" data-bank="g10">Lớp 10 (6 Môn)</button>
+                <button class="btn-filter" data-bank="g11">Lớp 11 (6 Môn)</button>
+                <button class="btn-filter" data-bank="g12">Lớp 12 (6 Môn)</button>
+                <button class="btn-filter" data-bank="thptqg">Ôn Thi THPTQG</button>
+                <button class="btn-filter" data-bank="uni">Đại Học </button>
+            </div>
+
+            <div class="question-bank-grid" id="question-bank-container">
+                <!-- Rendered dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 6: Q&A FORUM -->
+    <div class="modal-overlay" id="qa-modal">
+        <div class="modal-content" style="max-width:850px; max-height:90vh; overflow-y:auto;">
+            <button class="modal-close" id="qa-modal-close">&times;</button>
+            <h2 style="margin-bottom:0.5rem;">💬 Diễn Đàn Hỏi Đáp & Thảo Luận Bài Học</h2>
+            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1.5rem;">Đặt câu hỏi thắc mắc về bài giảng hoặc bài tập để nhận lời giải chi tiết từ Giáo viên và Cộng đồng Lập trình viên.</p>
+
+            <div style="background:var(--bg-input); padding:1.2rem; border-radius:12px; margin-bottom:1.5rem; border:1px solid var(--border-color);">
+                <h3 style="font-size:1rem; margin-bottom:0.8rem;">✍️ Gửi Câu Hỏi Mới</h3>
+                <form id="qa-post-form">
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:0.8rem;">
+                        <select class="form-input" id="qa-subject-select" required>
+                            <option value="">-- Chọn Môn Học / Lớp --</option>
+                            <option value="Toán Lớp 10">Toán Lớp 10</option>
+                            <option value="Văn Lớp 10">Văn Lớp 10</option>
+                            <option value="Lý Lớp 11">Vật Lý Lớp 11</option>
+                            <option value="Hóa Lớp 12">Hóa Học Lớp 12</option>
+                            <option value="Ôn Thi THPTQG">Ôn Thi THPTQG 2027</option>
+                            <option value="Đại Số Tuyến Tính">Đại Số Tuyến Tính (Đại Học)</option>
+                            <option value="Lập Trình Cơ Bản">Lập Trình Cơ Bản (Đại Học)</option>
+                        </select>
+                        <input type="text" class="form-input" id="qa-title-input" placeholder="Tiêu đề câu hỏi vắn tắt..." required>
+                    </div>
+                    <textarea class="form-input" id="qa-content-input" style="height:90px; resize:vertical;" placeholder="Nội dung chi tiết câu hỏi..." required></textarea>
+                    <button type="submit" class="btn-gradient" style="margin-top:0.8rem; padding:0.6rem 1.5rem;">🚀 Đăng Câu Hỏi Lên Diễn Đàn</button>
+                </form>
+            </div>
+
+            <h3 style="font-size:1.1rem; margin-bottom:1rem;">🔥 Các Câu Hỏi Vừa Được Giải Đáp</h3>
+            <div id="qa-threads-list" style="display:flex; flex-direction:column; gap:1rem;">
+                <!-- Sample Q&A items rendered dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 7: LEADERBOARD & QUIZ HISTORY -->
+    <div class="modal-overlay" id="quiz-history-modal">
+        <div class="modal-content" style="max-width:850px; max-height:90vh; overflow-y:auto;">
+            <button class="modal-close" id="quiz-history-modal-close">&times;</button>
+            <h2 style="margin-bottom:0.5rem;">📊 Lịch Sử Làm Bài & Bảng Xếp Hạng Khen Thưởng</h2>
+            <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem;">Thống kê tiến độ ôn luyện 20 câu trắc nghiệm và danh hiệu vinh danh học viên xuất sắc.</p>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-bottom:1.5rem;">
+                <div style="background:var(--bg-input); padding:1.2rem; border-radius:12px; text-align:center; border:1px solid var(--border-color);">
+                    <div style="font-size:2rem; font-weight:800; color:var(--primary-purple);" id="stat-total-tests">0</div>
+                    <div style="font-size:0.85rem; color:var(--text-muted);">Bài Quiz Đã Hoàn Thành</div>
+                </div>
+                <div style="background:var(--bg-input); padding:1.2rem; border-radius:12px; text-align:center; border:1px solid var(--border-color);">
+                    <div style="font-size:2rem; font-weight:800; color:var(--accent-cyan);" id="stat-avg-score">0%</div>
+                    <div style="font-size:0.85rem; color:var(--text-muted);">Tỷ Lệ Đúng Trung Bình</div>
+                </div>
+                <div style="background:var(--bg-input); padding:1.2rem; border-radius:12px; text-align:center; border:1px solid var(--border-color);">
+                    <div style="font-size:2rem; font-weight:800; color:var(--accent-pink);" id="stat-badges">🎖️ 3</div>
+                    <div style="font-size:0.85rem; color:var(--text-muted);">Huy Chương Danh Hiệu</div>
+                </div>
+            </div>
+
+            <h3 style="font-size:1.05rem; margin-bottom:0.8rem;">📝 Nhật Ký Kết Quả Các Lần Thi Gần Nhất</h3>
+            <div style="background:var(--bg-input); border-radius:12px; overflow:hidden; border:1px solid var(--border-color); margin-bottom:1.5rem;">
+                <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.9rem;">
+                    <thead>
+                        <tr style="background:rgba(138,43,226,0.15); border-bottom:1px solid var(--border-color);">
+                            <th style="padding:0.8rem 1rem;">Tên Môn / Bài Luyện</th>
+                            <th style="padding:0.8rem 1rem;">Số Câu Đúng</th>
+                            <th style="padding:0.8rem 1rem;">Tỷ Lệ (%)</th>
+                            <th style="padding:0.8rem 1rem;">Thời Gian</th>
+                            <th style="padding:0.8rem 1rem;">Trạng Thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="quiz-history-table-body">
+                        <!-- Rendered dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 8: GLOBAL SEARCH -->
+    <div class="modal-overlay" id="search-modal">
+        <div class="modal-content" style="max-width:750px;">
+            <button class="modal-close" id="search-modal-close">&times;</button>
+            <h2 style="margin-bottom:1rem;">🔍 Tìm Kiếm Nhanh Nội Dung Học Tập</h2>
+            
+            <div style="position:relative; margin-bottom:1.5rem;">
+                <input type="text" class="form-input" id="global-search-input" placeholder="Nhập từ khóa (Ví dụ: Toán, Lập trình, Ma trận, Mệnh đề, Lớp 10...)" style="padding-left:2.8rem; font-size:1.05rem; height:50px;">
+                <span style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); font-size:1.2rem;">🔍</span>
+            </div>
+
+            <div id="search-results-container" style="max-height:400px; overflow-y:auto; display:flex; flex-direction:column; gap:0.8rem;">
+                <div style="text-align:center; padding:2rem; color:var(--text-muted); font-size:0.9rem;">
+                    💡 Hãy gõ từ khóa bất kỳ để tìm nhanh bài giảng Video, Link tài liệu API hoặc Bộ bài tập trắc nghiệm 20 câu.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 9: FLASHCARDS MODAL -->
+    <div class="modal-overlay" id="flashcards-modal">
+        <div class="modal-content" style="max-width:650px; text-align:center;">
+            <button class="modal-close" id="flashcards-modal-close">&times;</button>
+            <h2 style="margin-bottom:0.5rem;">🎴 Thẻ Ghi Nhớ Lật Mặt (3D Flashcards)</h2>
+            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1.5rem;">Bấm vào thẻ để lật mặt xem công thức, định lý và đáp án ghi nhớ nhanh!</p>
+            
+            <div id="flashcard-container" style="perspective:1000px; margin:2rem auto; width:100%; max-width:480px; height:240px; cursor:pointer;">
+                <!-- Card Inner rendered dynamically via flashcards.js -->
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem;">
+                <button class="btn-icon" id="fc-prev-btn">← Thẻ Trước</button>
+                <span id="fc-counter" style="font-weight:700; color:var(--primary-purple);">1 / 10</span>
+                <button class="btn-icon" id="fc-next-btn">Thẻ Sau →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: ĐĂNG KÝ NHẬN TÀI LIỆU THÀNH CÔNG -->
+    <div class="modal-overlay" id="newsletter-success-modal">
+        <div class="modal-content" style="max-width:420px; text-align:center;">
+            <button class="modal-close" id="newsletter-success-close" aria-label="Đóng">&times;</button>
+            <div style="font-size:3.5rem; margin-bottom:0.5rem;">🎉</div>
+            <h2 style="margin-bottom:0.6rem;">Đăng ký nhận tài liệu thành công!</h2>
+            <p id="newsletter-success-msg" style="color:var(--text-muted); margin-bottom:1.5rem;"></p>
+            <button class="btn-gradient" id="newsletter-success-ok" style="padding:0.7rem 2rem;">Đã hiểu</button>
+        </div>
+    </div>
+
+    <!-- 🤖 AI TUTOR CHATBOT FLOATING WIDGET -->
+    <div class="ai-widget-container" id="ai-tutor-widget">
+        <button class="ai-widget-toggle" id="ai-widget-toggle-btn" title="Hỏi Trợ Lý AI Học Tập 24/7">
+            💬 AI
+        </button>
+        <div class="ai-chat-window" id="ai-chat-window">
+            <div class="ai-chat-header">
+                <div>
+                    <strong>🤖 AI Tutor (Trợ Lý Học Tập 24/7)</strong>
+                    <div style="font-size:0.75rem; opacity:0.85;">Giải đáp Toán, Lý, Hóa, Anh, Lập trình C++</div>
+                </div>
+                <button class="ai-chat-close" id="ai-chat-close-btn">&times;</button>
+            </div>
+            <div class="ai-chat-body" id="ai-chat-messages">
+                <div class="ai-msg ai-bot">
+                    👋 Chào bạn! Mình là Trợ lý AI Học Tập. Bạn có thắc mắc gì về lý thuyết, công thức Toán, C++ hay cách giải câu hỏi Quiz không?
+                </div>
+            </div>
+            <div class="ai-chat-suggestions">
+                <button class="ai-chip" onclick="AITutor.sendQuickQuery('Cách tính định thức Ma trận?')">Ma trận 3x3</button>
+                <button class="ai-chip" onclick="AITutor.sendQuickQuery('Con trỏ Pointer trong C++ là gì?')">Con trỏ C++</button>
+                <button class="ai-chip" onclick="AITutor.sendQuickQuery('Công thức đạo hàm hàm số mũ?')">Đạo hàm</button>
+            </div>
+            <form class="ai-chat-footer" id="ai-chat-form">
+                <input type="text" class="ai-input" id="ai-input-field" placeholder="Gõ câu hỏi thắc mắc tại đây..." required>
+                <button type="submit" class="ai-send-btn">🚀</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT ARCHITECTURE -->
+    <script src="js/config-service.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/notes.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/gamification.js"></script>
+    <script src="js/flashcards.js"></script>
+    <script src="js/pdf-print.js"></script>
+    <script src="js/ai-tutor.js"></script>
+    <script src="js/news-data.js"></script>
+    <script src="js/data-highschool.js"></script>
+    <script src="js/data-university.js"></script>
+    <script src="js/features-showcase.js"></script>
+    <script src="js/site-content.js"></script>
+    <script src="js/app.js"></script>
+
+    <script src="js/admin-service.js"></script>
+    <script src="js/focus-music.js"></script>
+    <script src="js/katex-render.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/newsletter.js"></script>
+
+    <!-- 🎵 FOCUS MUSIC FLOATING WIDGET -->
+    <div class="focus-music-widget" id="focus-music-widget">
+        <button class="focus-music-toggle" id="focus-music-toggle-btn" title="Bật Nhạc Tập Trung Lofi / Rain / Piano">
+            🎵 Nhạc Tập Trung
+        </button>
+        <div class="focus-music-popover" id="focus-music-popover">
+            <div class="fm-header">
+                <strong>🎵 Nhạc Tập Trung Lofi & Relax</strong>
+                <span id="fm-status-badge" style="font-size:0.75rem; color:var(--text-muted);">⚪ Đang Tắt</span>
+            </div>
+            <div class="fm-body">
+                <div class="fm-control-group">
+                    <label>Chế độ âm thanh:</label>
+                    <select id="fm-mode-select" class="form-input" style="padding:0.4rem;">
+                        <option value="lofi">🎷 Ambient Lofi Chords</option>
+                        <option value="piano">🎹 Gentle Piano Relaxation</option>
+                        <option value="rain">🌧️ Tiếng Mưa Rào (White Noise)</option>
+                        <option value="custom">📁 Nhạc Cá Nhân (Tải file MP3 / Link URL)</option>
+                    </select>
+                </div>
+                <div class="fm-control-group" id="fm-custom-group" style="display:none; margin-top:0.8rem; background:rgba(124,58,237,0.1); padding:0.6rem; border-radius:8px; border:1px solid var(--border-color);">
+                    <label style="font-size:0.82rem; margin-bottom:0.2rem; display:block; font-weight:600;">📂 Tải tệp MP3 từ máy:</label>
+                    <input type="file" id="fm-file-input" accept="audio/*" class="form-input" style="padding:0.3rem; font-size:0.8rem; margin-bottom:0.5rem; width:100%;">
+                    <label style="font-size:0.82rem; margin-bottom:0.2rem; display:block; font-weight:600;">🔗 Hoặc dán link file MP3:</label>
+                    <input type="text" id="fm-url-input" placeholder="https://example.com/bai-hat.mp3" class="form-input" style="padding:0.4rem; font-size:0.8rem; width:100%;">
+                </div>
+                <div class="fm-control-group" style="margin-top:0.8rem;">
+                    <label>Âm lượng:</label>
+                    <input type="range" id="fm-volume-slider" min="0" max="1" step="0.05" value="0.3" style="width:100%;">
+                </div>
+                <button class="btn-gradient" id="fm-play-btn" style="width:100%; margin-top:1rem; padding:0.6rem;">
+                    ▶️ Bật Nhạc
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

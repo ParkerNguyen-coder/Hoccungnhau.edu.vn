@@ -1,0 +1,926 @@
+/* ==========================================================================
+   HỌC CÙNG NHAU - CLEAN APP WORKSPACE STYLES
+   (Minimalist operational UI for Co-Study, PK Arena, AI Viva, Mistake Book, Study Buddy)
+   ========================================================================== */
+
+/* Prevent Navbar Search & Login Button from being squished */
+.header-actions .btn-gradient,
+.header-actions .btn-icon,
+.header-actions .nav-icon-btn {
+  flex-shrink: 0 !important;
+}
+
+.header-search {
+  min-width: 220px;
+}
+
+/* Home Quick App Launcher Grid */
+.band-ecosystem {
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.06) 0%, rgba(6, 182, 212, 0.04) 100%);
+  padding: 32px 0;
+}
+
+.app-launcher-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.app-tile {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+
+.app-tile:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-purple);
+  box-shadow: var(--shadow-md);
+}
+
+.app-tile-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.app-tile-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  background: rgba(124, 58, 237, 0.12);
+}
+
+.app-tile-live {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--bg-input);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+.app-tile-live.is-online {
+  background: rgba(16, 185, 129, 0.14);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.app-tile-live.is-hot {
+  background: rgba(244, 63, 94, 0.14);
+  color: #f43f5e;
+  border-color: rgba(244, 63, 94, 0.3);
+}
+
+.app-tile h3 {
+  font-size: 0.98rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.app-tile p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   COMMON WORKSPACE BAR & ICON BUTTONS
+   ========================================================================== */
+.ws-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.ws-topbar-left,
+.ws-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ws-title {
+  font-size: 1.12rem;
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Pure Icon Action Button */
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.icon-btn:hover {
+  border-color: var(--primary-purple);
+  background: rgba(124, 58, 237, 0.12);
+  transform: translateY(-1px);
+}
+
+.icon-btn.is-active {
+  background: var(--primary-gradient);
+  color: #fff;
+  border-color: transparent;
+}
+
+.icon-btn.is-danger {
+  background: rgba(239, 68, 68, 0.14);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.icon-btn.is-danger:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+.icon-btn.is-success {
+  background: rgba(16, 185, 129, 0.14);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.icon-btn.is-locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Segmented Tabs */
+.ws-tabs {
+  display: inline-flex;
+  background: var(--bg-input);
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.ws-tab {
+  padding: 6px 13px;
+  border-radius: 8px;
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ws-tab.active {
+  background: var(--bg-card);
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
+}
+
+.ws-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.ws-pill.live {
+  background: rgba(16, 185, 129, 0.14);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.ws-pill.timer {
+  background: rgba(244, 63, 94, 0.14);
+  color: #f43f5e;
+  border-color: rgba(244, 63, 94, 0.3);
+  font-family: monospace;
+  font-size: 0.88rem;
+}
+
+/* ==========================================================================
+   1. STUDY ROOMS (LOBBY & ZOOM-STYLE LIVE ROOM)
+   ========================================================================== */
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 16px;
+}
+
+.room-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  transition: all 0.2s ease;
+}
+
+.room-card:hover {
+  border-color: var(--primary-purple);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.room-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room-tag {
+  font-size: 0.73rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.room-tag.pomo { background: rgba(244, 63, 94, 0.14); color: #f43f5e; }
+.room-tag.eng  { background: rgba(6, 182, 212, 0.14); color: #06b6d4; }
+.room-tag.qa   { background: rgba(168, 85, 247, 0.14); color: #a855f7; }
+
+.room-card h4 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 8px 0 4px;
+  color: var(--text-main);
+}
+
+.room-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.room-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-input);
+  border: 2px solid var(--bg-card);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  margin-left: -6px;
+}
+
+.avatar-dot:first-child { margin-left: 0; }
+
+/* Live Room Workspace (Zoom / Meet Style) */
+.live-room-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.live-stage {
+  background: #0f172a;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 480px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cam-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  flex: 1;
+}
+
+.cam-tile {
+  background: #1e293b;
+  border-radius: 14px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 155px;
+  border: 2px solid transparent;
+  overflow: hidden;
+}
+
+.cam-tile.is-me {
+  border-color: #6366f1;
+}
+
+.cam-tile.is-afk {
+  border-color: #f59e0b;
+}
+
+.cam-avatar {
+  font-size: 2.4rem;
+  margin-bottom: 6px;
+}
+
+.cam-name-bar {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(6px);
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: #f8fafc;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.cam-top-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  left: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cam-time-badge {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.cam-report-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.65);
+  color: #94a3b8;
+  font-size: 0.72rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.cam-report-btn:hover {
+  opacity: 1;
+  background: #ef4444;
+  color: #fff;
+}
+
+/* Bottom Floating Meet Dock */
+.meet-dock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 14px;
+  margin-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dock-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #334155;
+  color: #f8fafc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.dock-btn:hover { background: #475569; transform: scale(1.06); }
+.dock-btn.active { background: #10b981; color: #fff; }
+.dock-btn.locked { background: rgba(239, 68, 68, 0.22); color: #f87171; cursor: not-allowed; }
+.dock-btn.leave  { background: #ef4444; color: #fff; width: 52px; border-radius: 999px; }
+
+/* Room Sidebar */
+.room-side {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.room-chat-list {
+  padding: 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  max-height: 360px;
+}
+
+.chat-item {
+  background: var(--bg-input);
+  padding: 8px 11px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+.chat-item strong { color: var(--primary-purple); display: block; margin-bottom: 2px; }
+
+.room-chat-input {
+  padding: 10px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: var(--bg-input);
+}
+
+/* ==========================================================================
+   2. PK ARENA (LOBBY & TIKTOK PK MATCH HUD)
+   ========================================================================== */
+.pk-lobby-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 16px;
+}
+
+.pk-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.pk-mode-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pk-mode-card {
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--bg-input);
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.pk-mode-card.active {
+  border-color: var(--primary-purple);
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.pk-mode-card h4 { margin: 6px 0 2px; font-size: 0.95rem; }
+.pk-mode-card span { font-size: 0.76rem; color: var(--text-muted); }
+
+/* Live Match HUD */
+.pk-hud {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: var(--shadow-md);
+}
+
+.pk-tug-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.pk-tug-track {
+  height: 22px;
+  border-radius: 999px;
+  background: #ef4444;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.pk-tug-blue {
+  background: linear-gradient(90deg, #2563eb, #06b6d4);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  transition: width 0.35s ease;
+}
+
+.pk-tug-vs {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fbbf24;
+  color: #0f172a;
+  font-size: 0.7rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.pk-vs-cameras {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 10px;
+  border: 2px solid var(--border-color);
+  background: #090d16;
+}
+
+.pk-vs-center-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 4px #090d16, 0 6px 20px rgba(239, 68, 68, 0.5);
+  z-index: 5;
+}
+
+.pk-cam-half {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  height: 215px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.pk-cam-half.is-blue {
+  border-bottom: 3px solid #38bdf8;
+}
+
+.pk-cam-half.is-red {
+  border-bottom: 3px solid #f87171;
+}
+
+.pk-cam-top-overlay {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pk-cam-bottom-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(9, 13, 22, 0.72);
+  backdrop-filter: blur(6px);
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+.pk-cam-dot {
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+}
+
+.pk-q-stage {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.pk-q-text {
+  font-size: 1.06rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 12px 0 18px;
+  color: var(--text-main);
+}
+
+.pk-opt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.pk-opt {
+  padding: 13px 14px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.pk-opt:hover { border-color: var(--primary-purple); }
+.pk-opt.correct { border-color: #10b981; background: rgba(16, 185, 129, 0.14); color: #10b981; }
+.pk-opt.wrong   { border-color: #ef4444; background: rgba(239, 68, 68, 0.14); color: #ef4444; }
+
+/* ==========================================================================
+   3. AI VIVA STUDIO
+   ========================================================================== */
+.viva-workspace {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 16px;
+}
+
+.viva-agent-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.viva-chat-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  height: 490px;
+  overflow: hidden;
+}
+
+.viva-messages {
+  flex: 1;
+  padding: 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.viva-msg {
+  max-width: 82%;
+  padding: 12px 15px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.viva-msg.ai {
+  align-self: flex-start;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+}
+
+.viva-msg.user {
+  align-self: flex-end;
+  background: var(--primary-gradient);
+  color: #fff;
+}
+
+.viva-composer {
+  padding: 12px 14px;
+  background: var(--bg-input);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.viva-input {
+  flex: 1;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-main);
+  padding: 0 12px;
+  font-size: 0.88rem;
+}
+
+/* ==========================================================================
+   4. MISTAKE NOTEBOOK
+   ========================================================================== */
+.mistake-stat-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.m-stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.m-stat strong { font-size: 1.35rem; font-weight: 900; }
+
+.mistake-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+
+.streak-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.s-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-color);
+}
+
+.s-dot.done { background: #10b981; }
+
+/* ==========================================================================
+   5. STUDY BUDDY & STREAK MESSENGER
+   ========================================================================== */
+.buddy-workspace {
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 16px;
+  height: 510px;
+}
+
+.buddy-list-pane {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.buddy-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--bg-input);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.buddy-item:hover,
+.buddy-item.active {
+  border-color: var(--primary-purple);
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.buddy-chat-pane {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.invite-card-msg {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(6, 182, 212, 0.1));
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+@media (max-width: 960px) {
+  .live-room-layout,
+  .pk-lobby-grid,
+  .pk-stage-grid,
+  .viva-workspace,
+  .buddy-workspace {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .cam-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

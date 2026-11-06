@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Trị - Học Cùng Nhau</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="a.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body class="admin-body">
+
+    <header class="admin-topbar">
+        <div class="brand"><span class="logo-badge">H</span> Quản Trị Hệ Thống</div>
+        <div class="right">
+            <span id="admin-user-label"></span>
+            <a class="btn-icon" href="index.html">← Về trang học</a>
+            <button class="nav-icon-btn" id="theme-toggle-btn" aria-label="Đổi giao diện sáng/tối">☀️</button>
+            <button class="btn-icon" id="admin-logout" hidden>Đăng xuất</button>
+        </div>
+    </header>
+
+    <!-- Hiện khi đang kiểm tra / không đủ quyền -->
+    <div class="admin-gate" id="admin-gate">
+        <div class="big">🔐</div>
+        <h2 id="gate-title">Đang kiểm tra quyền truy cập...</h2>
+        <p id="gate-msg" style="color:var(--text-muted); margin-top:.5rem;"></p>
+        <a class="btn-gradient" id="gate-home" href="index.html" hidden style="display:inline-block; margin-top:1.2rem; padding:.7rem 1.4rem;">Về trang chủ</a>
+    </div>
+
+    <!-- Chỉ hiện khi role === 'Admin' -->
+    <div class="admin-shell" id="admin-app" hidden>
+        <nav class="admin-side">
+            <a href="#/overview" data-nav="overview">📊 Tổng quan</a>
+            <a href="#/questions" data-nav="questions">🎯 Ngân hàng câu hỏi</a>
+            <a href="#/videos" data-nav="videos">📹 Video bài giảng</a>
+            <a href="#/users" data-nav="users">👥 Học viên</a>
+            <a href="#/leads" data-nav="leads">📩 Đăng ký tài liệu</a>
+            <div class="admin-side-sep" style="margin:10px 0 4px;padding:0 14px;font-size:.72rem;font-weight:800;color:var(--text-muted);letter-spacing:.04em">TÍNH NĂNG MỚI</div>
+            <a href="#/rooms" data-nav="rooms">🏠 Phòng học chung</a>
+            <a href="#/pk" data-nav="pk">⚔️ Đấu trường PK</a>
+            <a href="#/viva" data-nav="viva">🎓 Vấn đáp AI</a>
+            <a href="#/mistakes" data-nav="mistakes">📕 Sổ tay câu sai</a>
+            <a href="#/buddies" data-nav="buddies">🤝 Bạn cùng tiến</a>
+            <a href="#/tutor" data-nav="tutor">🤖 AI Tutor</a>
+            <a href="#/flashcards" data-nav="flashcards">🎴 Flashcards</a>
+            <a href="#/news" data-nav="news">📰 Tin tức & chữ chạy</a>
+            <a href="#/settings" data-nav="settings">⚙️ Số liệu & môn PK</a>
+        </nav>
+        <main class="admin-main" id="admin-view"></main>
+    </div>
+
+    <script src="js/config-service.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/data-highschool.js"></script>
+    <script src="js/data-university.js"></script>
+    <script src="js/news-data.js"></script>
+    <script src="js/flashcards.js"></script>
+    <script src="js/ai-tutor.js"></script>
+    <script src="js/features-showcase.js"></script>
+    <script src="js/site-content.js"></script>
+    <script src="js/admin-service.js"></script>
+    <script src="js/admin-page.js"></script>
+    <script src="js/admin-content.js"></script>
+</body>
+</html>

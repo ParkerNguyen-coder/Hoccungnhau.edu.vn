@@ -1,0 +1,165 @@
+BÁO CÁO PHÂN TÍCH & ĐẶC TẢ 6 TÍNH NĂNG TRỌNG TÂM CỦA SẢN PHẨM
+Tên dự án: HỌC CÙNG NHAU (hoccungnhau) – Nền tảng Học tập & Ôn luyện Thông minh
+Cuộc thi: Ý Tưởng Sáng Tạo App/Web 2026 – MindX Tech & AI School
+
+======================================================================
+PHẦN 1: TỔNG QUAN BÀI TOÁN & ĐỊNH VỊ SẢN PHẨM
+======================================================================
+
+1. Tên sản phẩm:
+Học Cùng Nhau (hoccungnhau) – Nền tảng Học tập Chung, Đấu luyện Trắc nghiệm & Vấn đáp AI Thông minh.
+
+2. Thông điệp cốt lõi:
+"Biến việc tự học cô đơn và thụ động thành một trải nghiệm học cùng nhau kỷ luật, kịch tính và hiểu sâu bản chất."
+
+3. Cấu trúc 6 tính năng của sản phẩm (1 Nền tảng cơ sở + 5 Tính năng đột phá):
+- Tính năng 1 (Cơ sở nền tảng): Hệ thống Học liệu & Ôn luyện chuẩn hóa theo từng môn học (Video, Tài liệu, Câu hỏi trắc nghiệm, Flashcards, Ghi chú, EXP).
+- Tính năng 2 (Không gian học chung): Tổ hợp Phòng học chung đa năng (Phòng Pomodoro, Phòng Tiếng Anh giao tiếp, Phòng Giải đáp theo môn).
+- Tính năng 3 (Thi đấu kịch tính): Đấu trường PK Giải đề Solo 1v1 & Lập Team (kiểu PK TikTok, bật Cam & khóa chuyển Tab chống dùng AI).
+- Tính năng 4 (Kiểm tra bản chất): Phòng Vấn đáp & Giảng bài cùng AI (AI đóng vai Học sinh hoặc Giám khảo kiểm tra phản xạ).
+- Tính năng 5 (Khắc phục điểm yếu): Sổ tay "Phục thù câu sai" & Theo dõi lỗ hổng kiến thức theo chủ đề.
+- Tính năng 6 (Gắn kết bạn học): Hệ thống Kết bạn "Bạn Cùng Tiến", Nuôi chuỗi lửa & Rủ nhau học (kèm cơ chế giới hạn không cho chat nhiều hơn học).
+
+
+======================================================================
+PHẦN 2: ĐẶC TẢ CHI TIẾT 6 TÍNH NĂNG
+(VẤN ĐỀ -> GIẢI PHÁP -> CÁCH NGĂN CHẶN VẤN ĐỀ PHÁT SINH / GIAN LẬN)
+======================================================================
+
+----------------------------------------------------------------------
+TÍNH NĂNG 1 (NỀN TẢNG CƠ SỞ): HỆ THỐNG HỌC LIỆU & ÔN LUYỆN CHUẨN HÓA THEO TỪNG MÔN HỌC
+----------------------------------------------------------------------
+
+1. Vấn đề thực tế:
+- Học sinh THPT (Lớp 10, 11, 12, ôn thi THPTQG) và sinh viên năm nhất Đại học thường bị phân tán nguồn học liệu ở nhiều nơi: phải mở YouTube xem bài giảng, lên mạng xã hội tìm đề cương PDF, sang trang web khác làm trắc nghiệm và ghi chép rời rạc.
+- Giao diện của nhiều trang web tài liệu truyền thống nhiều chữ, rối mắt và gây mỏi mắt khi học vào ban đêm.
+
+2. Giải pháp của sản phẩm (Tính năng nền tảng hiện có trên website):
+Xây dựng một kho học liệu và công cụ tự học chuẩn hóa, tập trung trên một giao diện duy nhất và phân chia rõ theo từng cấp học (Lớp 10, Lớp 11, Lớp 12, Ôn thi THPTQG 2027, Đại học Kỹ thuật):
+- Tổng hợp học liệu theo từng môn học: Mỗi môn tích hợp sẵn danh sách Video bài giảng trọng tâm xem trực tiếp trên web và kho Tài liệu tham khảo / Đề cương PDF.
+- Ngân hàng câu hỏi trắc nghiệm & Phòng luyện đề: Tổng hợp bộ đề 20 câu hỏi trắc nghiệm theo từng môn có đồng hồ đếm ngược 30 phút, thanh tiến độ làm bài, chấm điểm kèm lời giải chi tiết và hỗ trợ xuất/in đề thi ra giấy (Print / Export PDF).
+- Công cụ bổ trợ tự học: Tích hợp Thẻ ghi nhớ lật mặt 3D (3D Flashcards) để ôn công thức, Sổ ghi chú cá nhân tự động lưu, Thanh tìm kiếm nhanh toàn cục (Ctrl + K), chế độ giao diện Sáng/Tối (Light/Dark Mode) và hệ thống tích điểm kinh nghiệm (EXP), tăng Level, Bảng xếp hạng học viên.
+
+3. Các vấn đề phát sinh & Cách ngăn chặn:
+- Vấn đề 1: Người dùng mới vào chỉ muốn xem thử danh sách bài giảng nhưng bị chặn bắt đăng nhập quá sớm gây khó chịu; hoặc học sinh lớp 10 bị rối khi thấy lẫn lộn học liệu/thẻ ghi nhớ của bậc Đại học.
+  -> Cách ngăn chặn: Cho phép xem trước danh sách môn học và chỉ yêu cầu đăng nhập khi bắt đầu làm bài tính điểm. Đồng thời thiết lập bộ lọc tự động hiển thị đúng học liệu, đề thi và thẻ Flashcard theo đúng Khối lớp mà học viên đang chọn.
+- Vấn đề 2: Học sinh xem video bài giảng thụ động hoặc tua nhanh video để lấy điểm hoàn thành bài học (+EXP).
+  -> Cách ngăn chặn: Chỉ ghi nhận hoàn thành bài học khi người dùng xem đủ thời lượng tối thiểu của video và vượt qua các câu hỏi kiểm tra nhanh (Quick Check) gắn với nội dung bài giảng đó.
+
+
+----------------------------------------------------------------------
+TÍNH NĂNG 2: TỔ HỢP PHÒNG HỌC CHUNG ĐA NĂNG (LIVE CO-STUDY ROOMS)
+----------------------------------------------------------------------
+
+1. Vấn đề thực tế:
+- Ngồi tự học một mình ở nhà vào buổi tối rất dễ buồn ngủ, thiếu kỷ luật và dễ bỏ cuộc để lướt mạng xã hội.
+- Học sinh muốn luyện nói Tiếng Anh giao tiếp nhưng không có môi trường và bạn tập cùng.
+- Khi gặp bài tập khó thuộc một môn cụ thể (Toán, Lý, Hóa, C++...), việc chụp ảnh gửi qua các nhóm chat thông thường mất nhiều thời gian chờ đợi và khó trao đổi trực quan.
+
+2. Giải pháp của sản phẩm:
+Thiết kế hệ thống "Phòng Học Chung Trực Tuyến" chia làm 3 mô hình phòng chuyên biệt:
+- Phòng 1 (Phòng Tự Học Pomodoro): Người dùng tham gia phòng chỉ để ngồi học tập trung theo đồng hồ Pomodoro đồng bộ chung (25 phút tập trung học – 5 phút nghỉ giải lao) kết hợp nhạc nền Lofi / Tiếng mưa rào.
+- Phòng 2 (Phòng Giao Tiếp Tiếng Anh - English Speaking Lounge): Gom nhóm người học cùng trình độ hoặc cùng chủ đề để bật mic luyện phản xạ giao tiếp tiếng Anh trực tiếp.
+- Phòng 3 (Phòng Giải Đáp Môn Học Cụ Thể): Chia phòng theo từng môn (Phòng Toán 12, Phòng Vật Lý, Phòng C++...). Người dùng có thể "ném" câu hỏi khó lên Bảng chung của phòng để mọi người cùng phân tích, giải đáp và học hỏi lẫn nhau ngay tại chỗ.
+
+3. Các vấn đề phát sinh & Cách ngăn chặn:
+- Vấn đề 1: Gây ồn ào hoặc tán gẫu làm mất tập trung trong Phòng Pomodoro.
+  -> Cách ngăn chặn: Trong 25 phút Pomodoro, hệ thống tự động khóa Micro và khóa khung Chat chữ (chỉ cho phép bấm thả biểu tượng cổ vũ). Khung chat chỉ mở lại trong 5 phút giải lao.
+- Vấn đề 2: Học sinh "treo máy ảo" trong phòng học để cày giờ lấy điểm EXP nhưng thực tế đi làm việc khác.
+  -> Cách ngăn chặn: Yêu cầu bật Camera góc học tập hoặc hiển thị nút "Xác nhận đang học (Check-in)" ngẫu nhiên sau mỗi hiệp Pomodoro 25 phút. Nếu không phản hồi trong 60 giây sẽ tự động chuyển sang trạng thái Tạm vắng (AFK) và dừng cộng điểm EXP.
+- Vấn đề 3: Ngôn từ không chuẩn mực hoặc gây rối trong Phòng Tiếng Anh / Phòng Giải Đáp.
+  -> Cách ngăn chặn: Giới hạn sĩ số mỗi phòng (6–12 người), tích hợp bộ lọc từ ngữ tự động, bắt buộc đăng nhập tài khoản định danh và có tính năng "Bỏ phiếu mời ra khỏi phòng (Vote Kick)" nếu thành viên vi phạm nội quy.
+
+
+----------------------------------------------------------------------
+TÍNH NĂNG 3: ĐẤU TRƯỜNG PK GIẢI ĐỀ (SOLO 1V1 & TEAM PK KIỂU TIKTOK)
+----------------------------------------------------------------------
+
+1. Vấn đề thực tế:
+- Làm đề thi trắc nghiệm một mình theo cách truyền thống rất khô khan, thiếu tính cạnh tranh trực tiếp và không rèn được bản lĩnh xử lý nhanh dưới áp lực thời gian.
+
+2. Giải pháp của sản phẩm:
+Xây dựng "Đấu Trường PK Giải Đề" với 2 chế độ: Đấu đơn (Solo 1v1) hoặc Lập đội (Team 2v2, 3v3):
+- Các đấu thủ (hoặc hai đội) được ghép trận và giải chung một bộ đề (cùng môn, cùng cấp độ, cùng câu hỏi xuất hiện đồng thời).
+- Giao diện đối kháng trực tiếp kiểu PK trên TikTok: Phía trên màn hình là thanh năng lượng Xanh – Đỏ đẩy qua lại theo từng câu trả lời. Bên nào giải nhanh hơn và có kết quả đúng nhiều hơn sẽ đẩy thanh PK áp đảo đối phương và giành chiến thắng (nhận thưởng gấp đôi EXP và thăng hạng Rank).
+
+3. Các vấn đề phát sinh (Gian lận bằng AI, tra Google) & Cách ngăn chặn:
+Khi thi đấu phân thắng bại, rủi ro lớn nhất là người chơi mở tab khác dùng AI (ChatGPT, Gemini) để lấy đáp án nhanh, chụp ảnh đề bằng điện thoại hoặc nhờ người nhắc bài. Hệ thống kiểm soát bằng 4 lớp khóa chống gian lận:
+- Lớp 1 (Bắt buộc bật Camera trực tiếp): Trong suốt trận PK, khung hình Camera của hai bên được hiển thị trực tiếp trên màn hình đấu. Nếu tắt Camera hoặc rời khỏi khung hình, hệ thống sẽ cảnh báo vi phạm, ngăn chặn việc dùng điện thoại chụp đề tra AI hoặc nhờ người ngồi cạnh giải hộ.
+- Lớp 2 (Khóa chuyển Tab & Bắt buộc Toàn màn hình): Trận PK tự động khóa ở chế độ Toàn màn hình (Fullscreen). Nếu người chơi bấm Alt+Tab, chuyển sang tab trình duyệt khác hoặc thu nhỏ cửa sổ:
+  + Vi phạm lần 1: Cảnh báo đỏ toàn màn hình, thông báo cho đối thủ và khóa quyền chọn đáp án câu hiện tại trong 5 giây.
+  + Vi phạm lần 2: Hệ thống tự động xử thua cuộc trận PK đó ngay lập tức.
+- Lớp 3 (Chống Copy đề bài): Khóa hoàn toàn thao tác bôi đen văn bản, chuột phải và phím tắt Ctrl+C / Ctrl+V để người chơi không thể copy câu hỏi dán sang công cụ AI.
+- Lớp 4 (Giới hạn thời gian ngắn từng câu & Đảo vị trí đáp án): Mỗi câu hỏi chỉ hiển thị đếm ngược 15–30 giây (đủ để học sinh tự tư duy nhưng không kịp để gõ lại đề sang công cụ AI). Thứ tự 4 đáp án A, B, C, D của hai bên cũng được đảo ngẫu nhiên khác nhau để chống nhìn lén hoặc nhắc đáp án.
+
+
+----------------------------------------------------------------------
+TÍNH NĂNG 4: PHÒNG VẤN ĐÁP & GIẢNG BÀI CÙNG AI (AI VIVA & FEYNMAN ROLEPLAY)
+----------------------------------------------------------------------
+
+1. Vấn đề thực tế:
+- Học sinh rất dễ mắc bệnh "Học vẹt" hoặc "Ảo tưởng đã hiểu bài": Đọc sách hay nhìn lời giải sẵn thì thấy hiểu, nhưng khi gặp câu hỏi biến tướng hoặc cần giải thích bản chất thì hoàn toàn lúng túng.
+- Học sinh tự học ở nhà không có người đóng vai giám khảo hay bạn học để rèn luyện phản xạ trả lời câu hỏi lý thuyết.
+
+2. Giải pháp của sản phẩm:
+Thay vì chỉ để học sinh hỏi AI một chiều, hệ thống xây dựng "Phòng Vấn Đáp 2 Chiều Cùng AI" với 2 chế độ:
+- Chế độ 1 (AI đóng vai Học Sinh – Phương pháp Feynman): AI đóng vai một người bạn đang thắc mắc về bài học. Người dùng phải tự giảng lại kiến thức hoặc cách giải bài toán đó bằng ngôn từ của chính mình sao cho AI hiểu.
+- Chế độ 2 (AI đóng vai Giám Khảo Vấn Đáp): AI đặt liên tiếp các câu hỏi kiểm tra bài cũ, hỏi xoáy vào điều kiện áp dụng công thức hoặc bẫy lý thuyết. Người dùng phải phản xạ trả lời nhanh (bằng giọng nói hoặc gõ phím), sau đó AI chấm điểm độ hiểu sâu bản chất (0–100%) và chỉ ra chỗ người học đang hiểu sai.
+
+3. Các vấn đề phát sinh & Cách ngăn chặn:
+- Vấn đề 1: Học sinh copy nguyên văn định nghĩa trong sách giáo khoa hoặc trên Google dán vào để đối phó với AI.
+  -> Cách ngăn chặn: Khóa thao tác dán văn bản (Paste) trong ô trả lời vấn đáp và giới hạn đồng hồ phản xạ (30–45 giây/câu). Nếu phát hiện câu trả lời rập khuôn kiểu sách vở, AI sẽ hỏi vặn lại ngay một câu "Tại sao?" hoặc yêu cầu lấy ví dụ thực tế.
+- Vấn đề 2: Học sinh lợi dụng AI để nhờ giải hộ bài tập về nhà.
+  -> Cách ngăn chặn: Thiết lập cơ chế gợi mở từng bước (Socratic Prompting) – AI không đưa ngay đáp án cuối cùng mà chỉ gợi ý phương pháp bước 1 để buộc học sinh phải tự suy nghĩ bước tiếp theo.
+
+
+----------------------------------------------------------------------
+TÍNH NĂNG 5: SỔ TAY "PHỤC THÙ CÂU SAI" & THEO DÕI LỖ HỔNG KIẾN THỨC
+----------------------------------------------------------------------
+
+1. Vấn đề thực tế:
+- Học sinh giải rất nhiều đề trắc nghiệm ở Tính năng 1 và đấu PK ở Tính năng 3, nhưng làm sai câu nào là bỏ qua luôn câu đó, không theo dõi được mình hay sai ở chủ đề nào nên khi đi thi thật vẫn lặp lại đúng lỗi sai cũ.
+
+2. Giải pháp của sản phẩm:
+Xây dựng tính năng "Sổ Tay Phục Thù Câu Sai" tự động hóa hoàn toàn:
+- Tự động thu thập toàn bộ các câu hỏi mà người dùng đã chọn sai trong lúc luyện đề hoặc đấu PK vào một sổ tay riêng.
+- Tự động gom nhóm và thống kê theo "Chủ đề / Dạng bài hay sai nhất" (Ví dụ: Môn Toán 12 - Hay sai phần Tích phân từng phần; Môn C++ - Hay sai phần Con trỏ) kèm thanh tiến trình theo dõi mức độ khắc phục.
+- Cho phép bấm nút "Làm Đề Phục Thù" (tạo đề thi riêng chỉ gồm những câu và chủ đề người dùng từng sai) để ôn luyện tập trung vào đúng điểm yếu của bản thân.
+
+3. Các vấn đề phát sinh & Cách ngăn chặn:
+- Vấn đề: Khi làm lại các câu cũ trong Sổ tay câu sai, học sinh dễ làm đúng do "nhớ vẹt vị trí đáp án cũ" (nhớ mang máng lần trước câu này đáp án đúng là câu C) chứ chưa thực sự hiểu cách làm.
+  -> Cách ngăn chặn:
+  + Tự động đảo trộn lại thứ tự các đáp án A, B, C, D mỗi khi mở lại câu hỏi trong Sổ tay phục thù.
+  + Áp dụng quy tắc "Chinh phục nhiều lần" (Lặp lại ngắt quãng): Một câu hỏi trong Sổ tay câu sai chỉ được xóa khỏi danh sách cảnh báo đỏ khi học sinh làm đúng lại ít nhất 2–3 lần ở các ngày ôn tập khác nhau.
+
+
+----------------------------------------------------------------------
+TÍNH NĂNG 6: KẾT BẠN "BẠN CÙNG TIẾN", NUÔI CHUỖI LỬA & RỦ NHAU HỌC
+----------------------------------------------------------------------
+
+1. Vấn đề thực tế:
+- Học sinh rất thích học cùng bạn thân hoặc tìm những người bạn có cùng mục tiêu thi cử (ví dụ: cùng ôn thi khối A1, cùng mục tiêu đỗ ĐH Bách Khoa) để có thêm động lực.
+- Tuy nhiên, nếu kết bạn và rủ nhau học qua các mạng xã hội thông thường (như Facebook Messenger, Zalo), học sinh thường chỉ bàn chuyện học được 5 phút đầu rồi cuốn vào việc nhắn tin tán gẫu chuyện đời tư, gửi link giải trí làm mất cả buổi tối (chat nhiều hơn học).
+
+2. Giải pháp của sản phẩm:
+Xây dựng hệ thống Kết bạn chuyên biệt dành riêng cho việc học ("Mạng lưới Bạn Cùng Tiến"):
+- Ghép bạn theo "Bù trừ môn học" & Cùng mục tiêu: Hồ sơ mỗi học viên gắn nhãn "Môn thế mạnh" (VD: Giỏi Toán) và "Môn cần kèm" (VD: Yếu Tiếng Anh). Hệ thống tự động gợi ý kết bạn với những người có thể bổ trợ chéo cho nhau.
+- Trạng thái học tập trực tiếp (Live Study Status): Danh sách bạn bè hiển thị rõ bạn đang ngồi ở Phòng Pomodoro nào, đang giải đề môn gì, hay hôm nay chưa vào học.
+- Rủ nhau học 1-chạm & Gõ cửa nhắc học: Chỉ cần bấm 1 nút để gửi lời mời kéo bạn vào ngay Phòng học chung hoặc Phòng đấu PK của mình; hoặc bấm nút "Gõ cửa nhắc học" nếu thấy bạn thân tối rồi vẫn chưa vào bàn học.
+- Nuôi "Chuỗi Lửa Học Tập Chung (Shared Study Streak)": Hai người bạn cùng nuôi một ngọn lửa chuỗi ngày học liên tiếp. Mỗi ngày cả hai đều phải hoàn thành ít nhất 1 phiên Pomodoro (25 phút) hoặc 1 đề Quiz 20 câu thì ngọn lửa mới được duy trì. Nếu 1 người lười học, ngọn lửa chung của cả hai sẽ bị tắt.
+
+3. Các vấn đề phát sinh (Chat nhiều hơn học, làm phiền, kết bạn ảo) & Cách ngăn chặn:
+Để đảm bảo học sinh KẾT BẠN ĐỂ HỌC chứ không biến nền tảng thành nơi tán gẫu, hệ thống áp dụng 4 quy tắc giới hạn nghiêm ngặt:
+- Giới hạn 1 (Khóa Chat tự do ngoài sảnh – Chỉ dùng "Thẻ Rủ Học Định Sẵn"):
+  Ở ngoài sảnh chính, hai người bạn KHÔNG có ô gõ tin nhắn văn bản tự do như Messenger. Người dùng chỉ có thể bấm gửi các "Thẻ hành động học tập" được thiết kế sẵn như:
+  + "📚 Vào phòng Pomodoro 25 phút với tớ đi!"
+  + "⚔️ Làm 1 ván PK Toán 10 câu phân thắng bại không?"
+  + "🆘 Vào Phòng Giải Đáp cứu tớ câu Lý số 12 với!"
+  + "🔥 Tới giờ học rồi, vào làm 1 đề để giữ Chuỗi Lửa chung thôi!"
+- Giới hạn 2 (Cơ chế "Học Trước, Chat Sau" theo tỷ lệ 25:5):
+  Hai người bạn chỉ được mở khóa hộp chat tự do với nhau KHI VÀ CHỈ KHI cả hai vừa hoàn thành xong một phiên học chung 25 phút (Pomodoro) hoặc vừa đấu xong 1 trận PK giải đề. Hộp chat giải lao chỉ mở trong đúng 5 phút (có đồng hồ đếm ngược), hết 5 phút nghỉ sẽ tự động khóa lại để quay về trạng thái học tập!
+- Giới hạn 3 (Hỏi bài phải đính kèm Câu hỏi trong hệ thống):
+  Nếu muốn nhắn tin hỏi bài bạn bè ngoài giờ giải lao, tin nhắn bắt buộc phải đính kèm một "Thẻ Câu Hỏi / Bài Tập" có sẵn trong hệ thống và giới hạn tối đa số lượng câu thoại ngắn cho mỗi câu hỏi, ngăn chặn việc mượn cớ hỏi bài để buôn chuyện.
+- Giới hạn 4 (Khiên "Không Làm Phiền" tự động & Điều kiện Kết bạn thực chất):
+  + Khi một người đang trong trận PK hoặc đang làm bài thi, hệ thống tự động bật khiên "Đang Tập Trung" – chặn mọi thông báo rủ rê từ bạn bè cho đến khi nộp bài xong.
+  + Chỉ cho phép gửi lời mời kết bạn khi hai người đã từng ngồi học chung ít nhất 1 phiên Pomodoro, từng đấu PK cùng nhau 1 trận, hoặc nhập đúng Mã ID Học Viên của bạn bè ngoài đời.

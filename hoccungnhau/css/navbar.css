@@ -1,0 +1,100 @@
+/* ==========================================================================
+   NAVBAR + LAYOUT FIX  — nạp SAU responsive.css
+   ========================================================================== */
+[hidden] { display: none !important; }
+
+/* 1. HEADER: sticky thay vì fixed => không bao giờ đè lên <main>, kể cả khi header cao nhiều dòng trên mobile */
+header.site-header {
+  position: sticky; top: 0; left: auto; width: 100%;
+  height: auto; min-height: 68px; padding: 8px 24px;
+}
+.site-header-container {
+  display: flex; align-items: center; gap: 16px;
+  width: 100%; max-width: 1400px; margin: 0 auto;
+}
+.logo-container { display: flex; align-items: center; gap: 10px; cursor: pointer; flex: 0 0 auto; }
+@media (min-width: 769px) { .nav-bar { display: block; flex: 0 0 auto; } }
+
+/* 2. DROPDOWN
+   style.css đặt .nav-bar { overflow-x: auto } => overflow-y cũng thành auto và CẮT dropdown.
+   Phải trả về visible để menu xổ xuống không bị che. */
+.nav-bar { overflow: visible; }
+.nav-menu { gap: 4px; }
+.nav-link { background: none; white-space: nowrap; }
+.arrow-down { font-size: .75rem; opacity: .7; }
+.dropdown-menu { min-width: 240px; padding: 8px; }
+.nav-item.has-dropdown:focus-within > .dropdown-menu {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+.dropdown-item {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  padding: 10px 14px; border-radius: 8px; background: none;
+  color: var(--text-main); font-size: .9rem; font-weight: 500; text-align: left;
+}
+.dropdown-item:hover { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: #fff; }
+.dropdown-item.is-hot { color: var(--accent-pink); font-weight: 700; }
+.dropdown-item.is-uni { color: var(--accent-cyan); font-weight: 700; }
+.dropdown-item.is-hot:hover, .dropdown-item.is-uni:hover { color: #fff; }
+.dropdown-sep { height: 1px; background: var(--border-color); margin: 6px 8px; }
+
+/* 3. HEADER ACTIONS: search to + theme chỉ icon */
+.header-actions { flex: 1 1 auto; min-width: 0; justify-content: flex-end; gap: 10px; }
+.header-search {
+  flex: 1 1 auto; min-width: 150px; max-width: 480px; height: 42px;
+  display: flex; align-items: center; gap: 10px; padding: 0 14px;
+  border-radius: 999px; background: var(--bg-input); border: 1px solid var(--border-color);
+  color: var(--text-muted); font-weight: 500; font-size: .92rem; text-align: left;
+}
+.header-search:hover { border-color: var(--primary-purple); }
+.header-search .hs-text { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.header-search kbd {
+  font: 600 .72rem monospace; padding: 2px 6px; border-radius: 6px;
+  border: 1px solid var(--border-color); color: var(--text-muted);
+}
+.nav-icon-btn {
+  flex: 0 0 42px; width: 42px; height: 42px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--bg-input); border: 1px solid var(--border-color); font-size: 1.15rem;
+}
+.nav-icon-btn:hover { border-color: var(--primary-purple); transform: rotate(15deg); }
+.header-actions .btn-gradient { white-space: nowrap; max-width: 190px; overflow: hidden; text-overflow: ellipsis; }
+#admin-link { white-space: nowrap; }
+@media (max-width: 1100px) { .header-search kbd { display: none; } }
+
+/* 4. MAIN: căn giữa nội dung thường, cho phép dải màu tràn hết chiều ngang */
+.page-main { width: 100%; max-width: none; margin: 0; padding: 0; min-height: 60vh; }
+.page-main > :not(.band):not(.hero-section) {
+  width: min(1200px, calc(100% - 40px)); margin-left: auto; margin-right: auto;
+}
+.page-main > :first-child:not(.band):not(.hero-section) { margin-top: 28px; }
+.page-main > :last-child:not(.band):not(.hero-section) { margin-bottom: 40px; }
+.page-main > .hero-section {
+  margin: 0; padding-block: 56px 40px;
+  padding-inline: max(20px, calc((100% - 1200px) / 2));
+}
+
+/* 5. DẢI MÀU CÁC SECTION */
+.band { width: 100%; padding: 44px 0; border-block: 1px solid var(--border-color); }
+.band-inner { width: min(1200px, calc(100% - 40px)); margin: 0 auto; }
+.band .section-title:first-child { margin-top: 0; }
+.band-exp  { background: rgba(124, 58, 237, .12); }
+.band-news { background: var(--bg-main); }
+.band-rank { background: rgba(6, 182, 212, .10); }
+.band-team { background: rgba(236, 72, 153, .09); }
+
+/* 6. MOBILE */
+@media (max-width: 768px) {
+  header.site-header { padding: 10px 14px; max-height: 100vh; overflow-y: auto; }
+  .site-header-container { flex-wrap: wrap; gap: 10px; }
+  .header-actions { flex: 1 1 100%; flex-wrap: wrap; justify-content: stretch; }
+  .header-search { flex: 1 1 100%; max-width: none; order: -1; }
+  .header-actions .btn-gradient { flex: 1 1 auto; max-width: none; }
+  .page-main > .hero-section { padding-block: 36px 28px; }
+  .band { padding: 30px 0; }
+  .newsletter-form { flex-direction: column; }
+}
+
+/* 7. FORM NHẬN TÀI LIỆU (footer) */
+.newsletter-form.newsletter-stack { flex-direction: column; align-items: stretch; gap: 10px; }
+.newsletter-form.newsletter-stack .form-input { height: 42px; width: 100%; }
+.newsletter-form.newsletter-stack button:disabled { opacity: .6; cursor: wait; }
